@@ -1,0 +1,29 @@
+<div class="block">
+    <h3><?= $title; ?></h3>
+    <form method="post">
+        <ul>
+            <li>
+                <label>Логин:<br>
+                    <input type="text" name="login" maxlength="16" minlength="2" placeholder="Логин" required>
+                </label>
+            </li>
+
+            <li class="pt">
+                <label>Пароль:<br>
+                    <input type="password" name="password" placeholder="Пароль" required>
+                </label>
+            </li>
+
+
+            <li class="pt">
+                <label>Повтор пароля:<br>
+                    <input type="password" name="password2" placeholder="Повтор пароля" required>
+                </label>
+            </li>
+
+            <li class="pt">
+                <input type="submit" value="Сохранить" name="submit">
+            </li>
+        </ul>
+    </form>
+</div>

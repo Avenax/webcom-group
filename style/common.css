@@ -1,0 +1,100 @@
+html, div, span, h1, h2, h3, form, p, img, ul, li {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 480px;
+    color: #FFFFFF;
+    background-color: #303030;
+    padding: 0 2px;
+}
+
+body, input, textarea {
+    font-family: Verdana, Arial, Tahoma, Sans-Serif, serif;
+}
+
+a {
+    color: #CCFFCC;
+}
+
+a:hover {
+    color: #30F2A2;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+    color: #66CC33;
+}
+
+h1 a, h2 a {
+    color: #66CC33;
+}
+
+h1 {
+    font-size: 1.3em;
+    padding: 4px;
+}
+
+h2 {
+    font-size: 1.1em;
+    padding: 4px;
+}
+
+h3 {
+    font-size: 1.1em;
+    padding: 4px 0;
+}
+
+.major {
+    color: #FF3333;
+}
+div.delim-list {
+
+    border-top: 1px dashed #D2BC98;
+
+}
+.pt {
+    padding-top: 12px;
+}
+
+.ptm {
+    padding-top: 4px;
+}
+
+li {
+    list-style: none;
+}
+
+.block {
+    border: 1px solid #242;
+    border-radius: 4px;
+    margin: 2px 0;
+    background-color: #003300;
+    padding: 4px;
+}
+
+.blockTwo {
+    border: 1px solid #303030;
+    border-radius: 4px;
+    margin: 2px 0;
+    background-color: #003300;
+    padding: 4px;
+}
+
+.title {
+    color: #FFFF33;
+}
+
+.info, .feedbackPanelINFO {
+    color: #33CC33;
+}
+
+.nickAdmin {
+    color: #398DFA;
+}
+
+.small {
+    font-size: small;
+}

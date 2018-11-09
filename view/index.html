@@ -1,0 +1,101 @@
+<div class="block">
+    <h3>Гостевая книга</h3>
+    <?php if(empty($books)): ?>
+
+    <div>
+        <span class="title">Гостевая книга пустая!</span>
+    </div>
+
+    <?php else: ?>
+
+    <?php if(isset($_SESSION['user']) && GuestBook::$idUser == $_SESSION['user']): ?>
+
+    <div><a href="/load">Выгрузить список в .xlsx</a></div>
+
+    <?php endif; ?>
+
+    <?php foreach($books as $book): ?>
+    <ul class="blockTwo">
+        <li>
+            <span class="nickAdmin small"><?= GuestBook::myHtml($book['login']); ?>,
+                <?= BaseClass::getTime($book['time_message']); ?></span>,
+
+            <span class="title small">
+            <?php if (isset($_SESSION['user']) && GuestBook::checkOwner($book['id']) == false && !in_array($book['id'], GuestBook::getList(true))): ?>
+
+                Оценка:
+                <?php for($i = 1; $i<=5; $i ++): ?>
+
+                <a href="/rating/<?=$book['id'];?>/<?=$i;?>"><?=$i;?></a>
+
+                <?php endfor; ?>
+
+                <?php else: ?>
+                Средняя оценка: <?= GuestBook::averageRating($book['id']); ?>
+                <?php endif; ?>
+                </span>
+
+        </li>
+
+        <li>
+            <span class="title small">
+                <?= GuestBook::myHtml($book['message']); ?>
+            </span>
+        </li>
+
+        <?php if(!is_null($book['path_foto'])): ?>
+
+        <li>
+            <span class="major small">Фотография:</span>
+        </li>
+
+        <li>
+            <img src="<?= $book['path_foto']; ?>" width="100%">
+        </li>
+
+        <?php endif; ?>
+
+        <?php if(isset($_SESSION['user']) && $book['id_user'] == $_SESSION['user']): ?>
+
+        <li>
+            <span class="small">
+                <a href="/delete/<?= $book['id']; ?>">удалить</a>, <a href="/edit/<?= $book['id']; ?>">редактировать</a>
+            </span>
+        </li>
+
+        <?php endif; ?>
+    </ul>
+    <?php endforeach; ?>
+
+    <?php endif; ?>
+
+
+    <?php if(User::isAuth() == true): ?>
+
+    <form method="post" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <label>Сообщение: <br>
+                    <textarea class="wide" cols="50" name="message" rows="10"></textarea>
+                </label>
+            </li>
+
+            <li>
+                <label>
+                    Изображение: <br>
+                    <input type="file" name="file">
+                </label>
+            </li>
+
+            <li class="ptm">
+                <input name="submit" type="submit" value="Отправить">
+            </li>
+        </ul>
+    </form>
+
+    <?php else: ?>
+    <div>
+        <a href="/auth">Войти</a>, <a href="/register">Регистрация</a>
+    </div>
+    <?php endif; ?>
+</div>

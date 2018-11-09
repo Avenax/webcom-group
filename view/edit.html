@@ -1,0 +1,15 @@
+<div class="block">
+    <h3><?= $title; ?></h3>
+    <form method="post">
+        <ul>
+            <li>
+                <label>Сообщение: <br>
+                    <textarea class="wide" cols="50" name="message" rows="10"><?= GuestBook::myHtml($value['message']); ?></textarea>
+                </label>
+            </li>
+            <li class="ptm">
+                <input name="submit" type="submit" value="Сохранить">
+            </li>
+        </ul>
+    </form>
+</div>
