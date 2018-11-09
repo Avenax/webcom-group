@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta content="minimum-scale=1.0, width=device-width" name="viewport" />
     <link rel="stylesheet" type="text/css" href="/style/common.css?<?= md5(filemtime('style/common.css')); ?>"/>
-    <title><?= (isset($title) ? htmlspecialchars($title) : 'Webcom Group'); ?></title>
+    <title><?= (isset($title) ? GuestBook::myHtml($title) : 'Webcom Group'); ?></title>
 </head>
 <body>
 
