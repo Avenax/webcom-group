@@ -8,7 +8,7 @@
 
     <?php else: ?>
 
-    <?php if(isset($_SESSION['user']) && GuestBook::$idUser == $_SESSION['user']): ?>
+    <?php if(User::isAuth() == true && GuestBook::$idUser == $_SESSION['user']): ?>
 
     <div><a href="/load">Выгрузить список в .xlsx</a></div>
 
@@ -21,7 +21,7 @@
                 <?= BaseClass::getTime($book['time_message']); ?></span>,
 
             <span class="title small">
-            <?php if (isset($_SESSION['user']) && GuestBook::checkOwner($book['id']) == false && !in_array($book['id'], GuestBook::getList(true))): ?>
+            <?php if (User::isAuth() == true && GuestBook::checkOwner($book['id']) == false && !in_array($book['id'], GuestBook::getList(true))): ?>
 
                 Оценка:
                 <?php for($i = 1; $i<=5; $i ++): ?>
@@ -55,7 +55,7 @@
 
         <?php endif; ?>
 
-        <?php if(isset($_SESSION['user']) && $book['id_user'] == $_SESSION['user']): ?>
+        <?php if(User::isAuth() == true && $book['id_user'] == $_SESSION['user']): ?>
 
         <li>
             <span class="small">
